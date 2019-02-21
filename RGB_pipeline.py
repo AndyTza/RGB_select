@@ -80,7 +80,6 @@ class rgb():
 
         return (self.data)
 
-
     def rgb_select(self, table, JKs0=0.85, up_ks0=9.5, down_ks0=12.5):
         """
         This function will return the selected stars (exctinction corrected) for given photometric constrains from 2MASSself.
