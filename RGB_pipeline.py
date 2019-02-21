@@ -8,8 +8,7 @@ from galpy.util import bovy_coords
 
 class rgb():
     """
-    Create RGB star selection object.
-
+    Create RGB star selection object
     """
 
     def __init__(self, data):
@@ -76,9 +75,7 @@ class rgb():
             aj[L[i]:L[i+1], 0] = r_j*ebv_sfd
             ah[L[i]:L[i+1], 0] = r_h*ebv_sfd
 
-
         dat = Table([ks0, j0, h0, aks, aj, ah], names=('ks0', 'j0', 'h0', 'A_ks', 'A_j', 'A_h'))
-
         self.data.add_columns([dat['ks0'], dat['j0'], dat['h0'], dat['A_ks'], dat['A_j'], dat['A_h']])
 
         return (self.data)
@@ -88,9 +85,7 @@ class rgb():
         """
         This function will return the selected stars (exctinction corrected) for given photometric constrains from 2MASSself.
         Magnitude-Color values are used from Sharama et al. 2010
-
         """
-
         # first we're going to estimate the colors: (J-Ks)0 & (J-H)0
         jks0 = table['j0'] - table['ks0'] # j0-ks0
         jh0 = table['j0'] - table['h0'] # j0-h0
