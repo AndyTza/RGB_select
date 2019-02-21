@@ -6,7 +6,6 @@ from astropy.table import Table
 from astropy.io import ascii, fits
 from galpy.util import bovy_coords
 
-
 class rgb():
     """
     Create RGB star selection object.
