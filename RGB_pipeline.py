@@ -34,7 +34,7 @@ class rgb():
         """
 
         # Transform RA, DEC to l,b
-        lb = bovy_coords.radec_to_lb(data['ra'], data['dec'], degree=True)
+        lb = bovy_coords.radec_to_lb(self.data['ra'], self.data['dec'], degree=True)
         l, b = lb[:, 0], lb[:, 1]
 
         N = len(l) # Total number of stars in data file
@@ -64,9 +64,9 @@ class rgb():
             ebv_sfd = sfd(coords)
 
             # Apply corrections to each magnitude band based on E(B-V) estimates
-            corr_ks = ((data['ks_m'])[L[i]:L[i+1]]) - (r_ks*ebv_sfd)
-            corr_j = ((data['j_m'])[L[i]:L[i+1]]) - (r_j*ebv_sfd)
-            corr_h = ((data['h_m'])[L[i]:L[i+1]]) - (r_h*ebv_sfd)
+            corr_ks = ((self.data['ks_m'])[L[i]:L[i+1]]) - (r_ks*ebv_sfd)
+            corr_j = ((self.data['j_m'])[L[i]:L[i+1]]) - (r_j*ebv_sfd)
+            corr_h = ((self.data['h_m'])[L[i]:L[i+1]]) - (r_h*ebv_sfd)
 
             # corrected magnitudes
             ks0[L[i]:L[i+1], 0] = corr_ks
@@ -80,9 +80,9 @@ class rgb():
 
         dat = Table([ks0, j0, h0, aks, aj, ah], names=('ks0', 'j0', 'h0', 'A_ks', 'A_j', 'A_h'))
 
-        data.add_columns([dat['ks0'], dat['j0'], dat['h0'], dat['A_ks'], dat['A_j'], dat['A_h']])
+        self.data.add_columns([dat['ks0'], dat['j0'], dat['h0'], dat['A_ks'], dat['A_j'], dat['A_h']])
 
-        return (data)
+        return (self.data)
 
 
     def rgb_select(self, table, JKs0=0.85, up_ks0=9.5, down_ks0=12.5):
