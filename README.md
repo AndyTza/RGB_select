@@ -1,1 +1,1 @@
-This s a test
+In this repository you will find tools and tutorials I've built over the course of my senior thesis on mapping disk-substructures in the Milky Way. If you have any questions about the tutorials or source code, please feel free to leave an issue or email (at3156@columbia.edu)
